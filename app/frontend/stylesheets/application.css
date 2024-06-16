@@ -1,0 +1,12 @@
+
+/* Tailwind */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Base style */
+/* @import "base/fonts";
+@import "base/main_layout"; */
+
+/* Customize */
+/* @import "customize/shared"; */

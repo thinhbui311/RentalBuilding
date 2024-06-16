@@ -1,0 +1,33 @@
+{
+  "name": "rental_building",
+  "private": true,
+  "scripts": {
+    "build": "esbuild ./app/frontend/application.js --bundle --outdir=app/assets/builds",
+    "build:css": "postcss ./app/frontend/stylesheets/application.css -o ./app/assets/builds/application.css --full"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.6",
+    "@hotwired/stimulus": "^3.2.2",
+    "autoprefixer": "^10.4.19",
+    "esbuild": "^0.20.2",
+    "postcss-minify": "^1.1.0",
+    "stimulus": "^3.2.2",
+    "tailwindcss-stimulus-components": "^5.1.1",
+    "toastify-js": "^1.12.0"
+  },
+  "version": "0.1.0",
+  "engines": {
+    "node": "20.x"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.3.1",
+    "@tailwindcss/typography": "^0.5.2",
+    "postcss": "^8.4.7",
+    "postcss-cli": "^9.1.0",
+    "postcss-import": "^14.0.2",
+    "stimulus-vite-helpers": "^3.0.1",
+    "tailwindcss": "^3.0.23"
+  }
+}

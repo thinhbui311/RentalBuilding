@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV.fetch("RENTAL_BUILDING_DATABASE_HOST") { "" } %>
+  username: <%= ENV.fetch("POSTGRES_USER") { "" } %>
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") { "" } %>
+
+development:
+  <<: *default
+  database: rental_building_development
+
+test:
+  <<: *default
+  database: rental_building_test
+
+production:
+  <<: *default
+  database: rental_building_production
+
+staging:
+  <<: *default
+  database: rental_building_staging

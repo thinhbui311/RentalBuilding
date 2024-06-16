@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RentalBuilding</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", "data-turbolinks-eval": false, defer: true %>
+  </head>
+  <body class="max-w-7xl mx-auto flex flex-col h-screen justify-between relative">
+    <div class="main-header sticky top-0 z-50 bg-white opacity-85">
+      <%= render "layouts/header" %>
+    </div>
+    <div class="main-content w-full mx-auto grow relative">
+      <div class="hidden sm:flex flex-col-reverse z-50 absolute top-0 right-0">
+        <%= flash_messages %>
+      </div>
+      <%= yield %>
+    </div>
+    <div class="main-footer">
+      <%= render "layouts/footer" %>
+    </div>
+  </body>
+</html>
