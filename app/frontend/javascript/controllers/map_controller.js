@@ -14,7 +14,7 @@ export default class extends Controller {
 
   async initializeMap(lat, lng) {
     const loader = new Loader({
-      apiKey: "",
+      apiKey: "AIzaSyBOnJFHXhdG38of3xUVBpxud3IiwIcrRmo",
       version: "weekly"
     });
     const google = await loader.load();

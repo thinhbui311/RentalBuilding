@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     volumes:
       - rails_app:/app/tmp
+      - rails_app_active_storage:/app/storage
     networks:
       - rental_building_backend
     ports:
@@ -25,8 +26,38 @@ services:
     env_file:
       - .development.env
 
+  redis:
+    image: redis:7.0-alpine
+    container_name: rental_building_redis_development
+    command: redis-server
+    volumes:
+      - redis:/data
+    networks:
+      - rental_building_backend
+    expose:
+      - 6379
+
+  sidekiq:
+    image: rental_building:development
+    container_name: rental_building_sidekiq_development
+    depends_on:
+      - db
+      - redis
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    restart: unless-stopped
+    environment:
+    - REDIS_URL=redis://rental_building_redis_development:6379
+    volumes:
+      - rails_app:/app/tmp
+      - rails_app_active_storage:/app/storage
+    networks:
+      - rental_building_backend
+    env_file:
+      - .development.env
+
 volumes:
   rails_app:
+  rails_app_active_storage:
   postgresql-data:
   redis:
 

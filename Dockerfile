@@ -6,7 +6,7 @@ RUN echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesourc
 RUN apt-get update && apt-get install -y nodejs
 RUN npm install --global yarn
 RUN node -v
-RUN apt-get update && apt-get install -y build-essential libpq-dev locales nodejs \
+RUN apt-get update && apt-get install -y build-essential libpq-dev locales nodejs imagemagick \
     postgresql-client postgresql-client-common
 
 RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
@@ -21,7 +21,7 @@ WORKDIR /app
 ADD . ./
 
 RUN bundle config build.nokogiri --use-system-libraries
-RUN gem install bundler && \
+RUN gem install bundler -v 2.3.12 && \
     bundle config set force_ruby_platform true && \
     bundle install --jobs 20 --retry 5
 
