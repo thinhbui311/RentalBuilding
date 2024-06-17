@@ -5,7 +5,7 @@
 
 
    * Ruby 3.1.1
-   * Nodejs 20.9.0
+   * Nodejs 20.x
    * Yarn
    * Docker & Compose
 3. #### Installation & Configuration:
